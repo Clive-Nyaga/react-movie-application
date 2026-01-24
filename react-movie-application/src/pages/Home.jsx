@@ -10,7 +10,10 @@ function Home() {
         { id: 3, title: "Interstellar", release_date: "2014" }
     ];
 
-    const handleSearch = () => {};
+    const handleSearch = (e) => {
+        e.preventDefault();
+        alert(searchQuery);
+    };
 
     return (
         <div className="home">
@@ -18,14 +21,19 @@ function Home() {
                 <input type="text" 
                 placeholder="Search movies..."
                 className="search-input"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 />
                 <button type="submit" className="search-button">Search</button>
             </form>
 
             <div className="movies-grid">
-            {movies.map((movie) => (
-                <MovieCard key={movie.id} movie={movie} />
-            ))}
+            {movies.map((movie) => 
+                /*movie.title.toLowerCase().startsWith(searchQuery) && */
+                (
+                    <MovieCard key={movie.id} movie={movie} />
+                )
+            )}
             </div>
         </div>
     );
