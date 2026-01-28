@@ -1,16 +1,73 @@
-# React + Vite
+# React Movie Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application for browsing and managing your favorite movies using The Movie Database (TMDB) API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse popular movies
+- Search for movies by title
+- Add/remove movies to/from favorites
+- Persistent favorites using localStorage
+- Responsive design
+- React Router for navigation
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** - Frontend framework
+- **Vite** - Build tool and dev server
+- **React Router DOM** - Client-side routing
+- **Context API** - State management for favorites
+- **TMDB API** - Movie data source
+- **CSS3** - Styling
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm or yarn
+- TMDB API key
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   - Create a `.env` file in the root directory
+   - Add your TMDB API key:
+     ```
+     VITE_TMDB_API_KEY=your_api_key_here
+     ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable components
+├── contexts/       # React Context providers
+├── css/           # Stylesheets
+├── pages/         # Page components
+├── services/      # API services
+├── App.jsx        # Main app component
+└── main.jsx       # Entry point
+```
+
+## API
+
+This application uses [The Movie Database (TMDB) API](https://www.themoviedb.org/documentation/api) to fetch movie data. You'll need to register for a free API key to use this application.
