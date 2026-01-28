@@ -31,9 +31,26 @@ function Home() {
         { id: 3, title: "Interstellar", release_date: "2014" }
     ]; */
 
-    const handleSearch = (e) => {
+    const handleSearch = async(e) => {
         e.preventDefault();
-        alert(searchQuery);
+        // alert(searchQuery);
+        if (!searchQuery.trim()) return;
+        if (loading) return;
+
+        setLoading(true);
+        try {
+            const searchResults = await searchMovies(searchQuery);
+            setMovies(searchResults);
+            setError(null);
+        } catch (error) {
+            console.log(error);
+            setError("Failed to search movies...");
+        } finally {
+            setLoading(false);
+        }
+
+        // setSearchQuery("");
+
     };
 
     return (
